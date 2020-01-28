@@ -93,23 +93,23 @@ class Vehicle {
         this.numWheels = numWheels;
     }
     aboutVehicle() {
-        console.log(`The ${this.type}, made by ${this.manufact} that has ${this.numWheels} wheels`);
+        console.log(`The ${this.type}, made by ${this.manufact} has ${this.numWheels} wheels`);
     }
 };
 
 class Truck extends Vehicle {
-    constructor(type,manufact, numWheels, numDoors) {
-        super(type,manufact, numWheels);
+    constructor(type, manufact, numWheels) {
+        super(type, manufact, numWheels);
         this.numDoors = numDoors;
         this.truckBed = true;
     }
     aboutVehicle() {
-        console.log(`The ${this.type} made by ${this.manufact} has ${this.numWheels} wheels, and ${this.numDoors} with a ${this.logTruckBed()}.`);
+        console.log(`The ${this.type} made by ${this.manufact} has ${this.numWheels} wheels, and ${this.numDoors} doors with a ${this.logtruckBed()}.`);
     }
 };
 
 class Sedan extends Vehicle {
-    constructor(type, manufact,mpg, size) {
+    constructor(type, manufact, mpg, size) {
         super(type, manufact);
         this.numWheels = 4;
         this.numDoors = 4;
@@ -121,4 +121,27 @@ class Sedan extends Vehicle {
         console.log(`The ${this.size} ${this.manufact} ${this.type} gets ${this.mpg} miles per gallon, has ${this.numWheels} wheels, ${this.numDoors} doors, and ${this.logtruckBed()}`)
     }
 };
+
+class MotorCycle extends Vehicle {
+    constructor(type, manufact) {
+        super(type, manufact);
+        this.numWheels = 2;
+        this.numDoors = false;
+        this.goReverse = false;
+        this.handleBars = true;
+    }
+    aboutVehicle() {
+        console.log(`The ${this.type} made by ${this.manufact} has ${this.numWheels} wheels, ${this.numDoors ? 'doors' : 'no doors'}, and ${this.handleBars ? 'has handle bars' : 'has a steering wheel'}`);
+    }
+};
+
+vehicle = new Vehicle('Chevelle SS', 'Chevy', '4');
+truck = new Vehicle('F-150', 'Ford', '4');
+sedan = new Vehicle('small', 'Honda', 'Accord', '37');
+motorCycle = new Vehicle('Ghost', 'Harley Davidson');
+
+vehicle.aboutVehicle();
+truck.aboutVehicle();
+sedan.aboutVehicle();
+motorCycle.aboutVehicle();
 
