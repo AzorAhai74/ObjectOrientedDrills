@@ -84,3 +84,41 @@ person3.greeting();
 person4.greeting();
 person5.greeting();
 
+
+
+class Vehicle {
+    constructor(type, manufact, numWheels) {
+        this.type = type
+        this.manufact = manufact;
+        this.numWheels = numWheels;
+    }
+    aboutVehicle() {
+        console.log(`The ${this.type}, made by ${this.manufact} that has ${this.numWheels} wheels`);
+    }
+};
+
+class Truck extends Vehicle {
+    constructor(type,manufact, numWheels, numDoors) {
+        super(type,manufact, numWheels);
+        this.numDoors = numDoors;
+        this.truckBed = true;
+    }
+    aboutVehicle() {
+        console.log(`The ${this.type} made by ${this.manufact} has ${this.numWheels} wheels, and ${this.numDoors} with a ${this.logTruckBed()}.`);
+    }
+};
+
+class Sedan extends Vehicle {
+    constructor(type, manufact,mpg, size) {
+        super(type, manufact);
+        this.numWheels = 4;
+        this.numDoors = 4;
+        this.truckBed = false;
+        this.mpg = mpg;
+        this.size = size;
+    }
+    aboutVehicle() {
+        console.log(`The ${this.size} ${this.manufact} ${this.type} gets ${this.mpg} miles per gallon, has ${this.numWheels} wheels, ${this.numDoors} doors, and ${this.logtruckBed()}`)
+    }
+};
+
