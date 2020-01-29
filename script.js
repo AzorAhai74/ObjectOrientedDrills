@@ -93,32 +93,32 @@ class Vehicle {
         this.numWheels = numWheels;
     }
     aboutVehicle() {
-        console.log(`The ${this.type}, made by ${this.manufact} has ${this.numWheels} wheels`);
+        console.log(`The ${this.type}, made by ${this.manufact} has ${this.numWheels} wheels.`);
     }
 };
 
 class Truck extends Vehicle {
-    constructor(type, manufact, numWheels) {
+    constructor(type, manufact, numWheels, numDoors) {
         super(type, manufact, numWheels);
         this.numDoors = numDoors;
         this.truckBed = true;
     }
     aboutVehicle() {
-        console.log(`The ${this.type} made by ${this.manufact} has ${this.numWheels} wheels, and ${this.numDoors} doors with a ${this.logtruckBed()}.`);
+        console.log(`The ${this.type} made by ${this.manufact} has ${this.numWheels} wheels, and has ${this.numDoors} doors with a ${this.truckBed ? 'truckBed' : ''}.`);
     }
 };
 
 class Sedan extends Vehicle {
-    constructor(type, manufact, mpg, size) {
+    constructor(size, manufact, type, mpg) {
         super(type, manufact);
         this.numWheels = 4;
         this.numDoors = 4;
         this.truckBed = false;
-        this.mpg = mpg;
         this.size = size;
+        this.mpg = mpg;
     }
     aboutVehicle() {
-        console.log(`The ${this.size} ${this.manufact} ${this.type} gets ${this.mpg} miles per gallon, has ${this.numWheels} wheels, ${this.numDoors} doors, and ${this.logtruckBed()}`)
+        console.log(`The ${this.size} ${this.manufact} ${this.type} gets ${this.mpg} miles per gallon, has ${this.numWheels} wheels, ${this.numDoors} doors, and does not ${this.truckBed ? 'truckBed' : 'have a truck bed'}.`);
     }
 };
 
@@ -131,14 +131,14 @@ class MotorCycle extends Vehicle {
         this.handleBars = true;
     }
     aboutVehicle() {
-        console.log(`The ${this.type} made by ${this.manufact} has ${this.numWheels} wheels, ${this.numDoors ? 'doors' : 'no doors'}, and ${this.handleBars ? 'has handle bars' : 'has a steering wheel'}`);
+        console.log(`The ${this.type} made by ${this.manufact} has ${this.numWheels} wheels, ${this.numDoors ? 'doors' : 'no doors'}, and ${this.handleBars ? 'has handle bars' : 'has a steering wheel'}.`);
     }
 };
 
 vehicle = new Vehicle('Chevelle SS', 'Chevy', '4');
-truck = new Vehicle('F-150', 'Ford', '4');
-sedan = new Vehicle('small', 'Honda', 'Accord', '37');
-motorCycle = new Vehicle('Ghost', 'Harley Davidson');
+truck = new Truck('F-150', 'Ford', '4', '4');
+sedan = new Sedan('small', 'Honda', 'Accord', '37');
+motorCycle = new MotorCycle('Ghost', 'Harley Davidson');
 
 vehicle.aboutVehicle();
 truck.aboutVehicle();
