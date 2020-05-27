@@ -88,7 +88,7 @@ person5.greeting();
 
 class Vehicle {
     constructor(type, manufact, numWheels) {
-        this.type = type
+        this.type = type;
         this.manufact = manufact;
         this.numWheels = numWheels;
     }
